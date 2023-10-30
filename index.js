@@ -46,7 +46,7 @@ function getRndInteger(min, max) {
 const divmod = (x, y) => [Math.floor(x / y), x % y];
 
 function sleep(ms) {
-	setTimeout(function () {
+	setTimeout(function() {
 		sleeping = false;
 	}, ms);
 }
@@ -54,12 +54,12 @@ function sleep(ms) {
 class RedditBot {
 	constructor(filename) {
 		this.response_list = [];
-		if (!db.length){
-		this.csvToArray(filename);
-		  db['response_list'] = this.response_list
-		} else{
-		    console.log("Pulling from DB");
-		    this.response_list = db['response_list'];
+		if (!db.length) {
+			this.csvToArray(filename);
+			db['response_list'] = this.response_list
+		} else {
+			console.log("Pulling from DB");
+			this.response_list = db['response_list'];
 		}
 	}
 	csvToArray(filename) {
@@ -115,9 +115,9 @@ class RedditBot {
 			} else {
 				console.log(
 					"Couldn't post " +
-						dictionary["phrase"] +
-						"Cool Down time: " +
-						(24 - hours)
+					dictionary["phrase"] +
+					"Cool Down time: " +
+					(24 - hours)
 				);
 			}
 		}
@@ -158,7 +158,7 @@ function startBot() {
 		limit: 10,
 		pollTime: 2000,
 	});
-	comments.on("item", function (item) {
+	comments.on("item", function(item) {
 		console.log("================================");
 		console.log(item.body);
 		if (!sleeping) {
